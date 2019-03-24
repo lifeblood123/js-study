@@ -8,20 +8,29 @@
 </head>
 <body>
     <script>
-        function person(name,age,sex){
+        //类
+        function Person(name,age,sex){
             this.name = name;
             this.age = age;
             this.sex = sex;
         }
-        person.prototype = {
-            constructor : person,
+        Person.prototype = {
+            constructor : Person,
             sayName : function(){
                 alert('hello'+ this.name);
             }
 
         }
-        var person1 = new person('mumu','30','nan');
+        var person1 = new Person('mumu','30','nan');
         person1.sayName();
+
+
+        // 如何判断是否是arr
+        function isPerson (p1){
+            return p1 instanceof Person;
+
+        }
+        console.log(isPerson(person1)); //true
     </script>
     
 </body>
