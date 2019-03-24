@@ -7,7 +7,22 @@
     <title>yake love yun</title>
 </head>
 <body>
-    <script></script>
+    <script>
+        function person(name,age,sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        person.prototype = {
+            constructor : person,
+            sayName : function(){
+                alert('hello'+ this.name);
+            }
+
+        }
+        var person1 = new person('mumu','30','nan');
+        person1.sayName();
+    </script>
     
 </body>
 </html>
