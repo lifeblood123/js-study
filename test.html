@@ -8,20 +8,46 @@
 </head>
 <body>
     <script>
-        function person(name,age,sex){
+        //类
+        function Person(name,age,sex){
             this.name = name;
             this.age = age;
             this.sex = sex;
         }
-        person.prototype = {
-            constructor : person,
+        Person.prototype = {
+            constructor : Person,
             sayName : function(){
-                alert('hello'+ this.name);
+                console.log('hello'+ this.name);
             }
 
         }
-        var person1 = new person('mumu','30','nan');
+        var person1 = new Person('mumu','30','nan');
         person1.sayName();
+
+
+        // 如何判断是否是arr
+        function isPerson (p1){
+            return p1 instanceof Person;
+
+        }
+        console.log(isPerson(person1)); //true
+
+        //判断对象类型
+        function isObjectType(arr){
+            var str = Object.prototype.toString.call(arr);
+            console.log(str);
+            return str.substring(8,str.length-1);
+
+            
+        }
+        var arr1 =[1,2,4];
+        var number1 = 2;
+        //TEST SSH third
+        var str1 = 'muyake is a pink pig';
+        console.log(isObjectType(str1));        
+        console.log(isObjectType(number1));
+        console.log(isObjectType(arr1));
+        console.log(typeof number1);
     </script>
     
 </body>

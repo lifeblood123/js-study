@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    // 类
+        
+//         class Person {
+//             constructor(name, age) {
+//                 this.name = name;
+//                 this.age = age;
+//             }
+//             saySorry(name) {
+
+//                 console.log(`sorry my ${this.name}`);
+//             }
+//         }
+//         let p1 = new Person('yake', 30);
+//         p1.saySorry('yun');
+//     //类的继承
+
+//    class students extends Person{
+//        constructor(name,age,job){
+//            super(name,age);
+//            this.job = job;
+//        }
+//        showJob(){
+//            console.log(`${this.job} is ${this.name} job`,);
+//        }
+//     }
+//     let students1 = new students('yun','18','develop');
+//     students1.showJob();
+
+    //es5 继承
+
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+
+    }
+    Person.prototype = {
+        constructor : Person,
+        sayHello : function(){
+            console.log(`hello ${this.name}`);
+        }
+
+    }
+    var p1 = new Person('yun',18);
+    p1.sayHello();
+//继承
+    function students(name,age,job){
+        Person.call(this,name,age);//执行person函数，使students 有name age 属性
+        this.job = job;
+    }
+    students.prototype = Object.create(Person.prototype);
+    students.prototype.constructor = students;
+    students.prototype.sayJob = function(){
+        console.log(`${this.job} is ${this.name} job`);
+    }
+    let students1 = new students('yake',18,'web develop');
+    students1.sayJob();
+
+
+    </script>
+
+</body>
+
+</html>
